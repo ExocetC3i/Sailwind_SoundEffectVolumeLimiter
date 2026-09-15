@@ -10,6 +10,7 @@ using UnityEngine;
 namespace SoundEffectVolumeLimiter
 {
     [BepInPlugin("com.Exocet.SoundEffectVolumeLimiter", "Sound Effect Volume Limiter", "1.0.0")]
+
     public class SoundEffectVolumeLimiterPlugin : BaseUnityPlugin
     {
         private void Awake()
@@ -38,20 +39,28 @@ namespace SoundEffectVolumeLimiter
         {
             "Footsteps",
             "Helm Creak",
+            "Boat Creaking",
             "Hull Wash",
             "Waves",
             "Rigging",
-            "Misc Effects"
+            "Weather",
+            "Misc Effects",
+            "Custom 1",
+            "Custom 2"
         };
 
         private static readonly string[][] DefaultGroupKeywords =
         {
             new[] { "footstep", "footsteps", "foot", "step", "steps" },
-            new[] { "creak", "wheel" },
+            new[] { "wheel creak" },
+            new[] { "boat creak"},
             new[] { "hull", "hitting-bow", "bow" },
             new[] { "oceanwave", "wave", "splash", "ocean", "shore" },
             new[] { "sail", "rope", "flap", "snap" },
-            new[] { "click", "eat", "swallow", "scrape", "fishing", "rain", "seagulls"}
+            new[] { "rain", "thunder", "storm", "wind" },
+            new[] { "click", "eat", "swallow", "scrape", "fishing", "seagulls" },
+            new[] { "bell" },
+            new[] { "pump" }
         };
 
         private sealed class SoundGroup
@@ -145,7 +154,7 @@ namespace SoundEffectVolumeLimiter
                 new ConfigDescription(
                     "Press this key in-game to list matching and ungrouped audio clips.",
                     null,
-                    new ConfigurationManagerAttributes { Order = 80 }));
+                    new ConfigurationManagerAttributes { Order = 520 }));
 
             _refreshGroupsKey = cfg.Bind(
                 "Ship sound",
@@ -154,7 +163,7 @@ namespace SoundEffectVolumeLimiter
                 new ConfigDescription(
                     "Press this key in-game to rebuild the configured groups and rescan all active audio sources.",
                     null,
-                    new ConfigurationManagerAttributes { Order = 100 }));
+                    new ConfigurationManagerAttributes { Order = 540 }));
 
             _restoreDefaultGroupsKey = cfg.Bind(
                 "Ship sound",
@@ -163,12 +172,12 @@ namespace SoundEffectVolumeLimiter
                 new ConfigDescription(
                     "Press this key in-game to restore the default group names and keyword sets without changing volume ceilings.",
                     null,
-                    new ConfigurationManagerAttributes { Order = 60 }));
+                    new ConfigurationManagerAttributes { Order = 560 }));
         }
 
         private static int GroupOrder(int groupIndex, int settingOffset)
         {
-            return 300 - groupIndex * 30 - settingOffset;
+            return 1000 - groupIndex * 30 - settingOffset;
         }
 
         private static void RefreshGroupsFromConfig()
