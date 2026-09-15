@@ -1,7 +1,9 @@
 # Sound Effects Volume Limiter for Sailwind
 Limit the maximum volume of groups of sound effects in Sailwind.
 
-Developed in collaboration with Dixie (Ray) from the Sailwind community Discord who provided the original core code to cap sound effect volumes.
+Requires [BepInEx Configuration Manager](https://github.com/BepInEx/BepInEx.ConfigurationManager)
+
+  Developed in collaboration with Dixie (Ray) from the Sailwind community Discord who provided the original core code to cap sound effect volumes.
 
 Is that creaky sound effect from the wheel ready to send you jumping overboard? Stormy wind or rain blowing our your eardrums? This plugin will allow you to adjust down the _maximum_ playback level of sound effects Sailwind, both while you're on a boat and while you are anywhere else in the game world.
 
@@ -41,4 +43,5 @@ Because this plugin searches for all sound effects in the game - both those spec
 
 ### Disclaimers
 This plugin is provided as-is and may be used, shared or modified under the MIT License.
+
 _Generative AI usage notice: this plugin was developed with the assistance of GPT-5.6-Luna._
