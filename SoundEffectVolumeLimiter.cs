@@ -9,10 +9,14 @@ using UnityEngine;
 
 namespace SoundEffectVolumeLimiter
 {
-    [BepInPlugin("com.Exocet.SoundEffectVolumeLimiter", "Sound Effect Volume Limiter", "1.0.0")]
+    [BepInPlugin("com.Exocet.SoundEffectVolumeLimiter", "Sound Effect Volume Limiter", "1.0.2")]
 
     public class SoundEffectVolumeLimiterPlugin : BaseUnityPlugin
     {
+        public const string PLUGIN_GUID = "com.Exocet.SoundEffectVolumeLimiter";
+        public const string PLUGIN_NAME = "Sound Effect Volume Limiter";
+        public const string PLUGIN_VERSION = "1.0.2";
+
         private void Awake()
         {
             ShipSoundCaps.Bind(Config);
